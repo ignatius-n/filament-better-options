@@ -67,18 +67,12 @@
                     @endif
 
                     x-data="{
-                        isSelected: false,
+                        isSelected: @js(in_array($value, (array) ($getState() ?? $getDefaultState() ?? []))),
                         init() {
-                            this.updateSelectedState();
-
-                            this.$watch('$wire.{{ $statePath }}', () => {
-                                this.updateSelectedState();
+                            this.$watch('$wire.{{ $statePath }}', (newValue) => {
+                                const value = Array.isArray(newValue) ? newValue : [];
+                                this.isSelected = value.includes('{{ $value }}');
                             });
-                        },
-                        updateSelectedState() {
-                            const currentValue = $wire.get('{{ $statePath }}');
-                            const value = Array.isArray(currentValue) ? currentValue : [];
-                            this.isSelected = value.includes('{{ $value }}');
                         }
                     }"
                     @class([
