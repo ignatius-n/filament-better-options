@@ -3,3 +3,6 @@
 @import "checkbox-cards.css";
 @import "radio-list.css";
 @import "radio-cards.css";
+
+/* Filament uses class-based dark mode; match it so light/dark follow panel toggle */
+@custom-variant dark (&:where(.dark, .dark *));
