@@ -44,7 +44,7 @@
                     'is-centered' => $isItemsCenter(),
                 ])
                 x-data="{
-                    isSelected: @js(($getState() ?? $getDefaultState()) === $value),
+                    isSelected: @js(String($getState() ?? $getDefaultState() ?? '') === String($value)),
                     init() {
                         this.$watch('$wire.{{ $statePath }}', (newValue) => {
                             this.isSelected = String(newValue ?? '') === '{{ $value }}';
