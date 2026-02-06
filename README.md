@@ -35,9 +35,11 @@ Enhanced form components for Filament Forms with modern interface, advanced feat
 
 ## Requirements
 
-- PHP 8.3+
-- Laravel 11.0+
-- Filament 4.0+
+- PHP 8.2+
+- Laravel 11.28+
+- Filament 5.0+
+- Livewire 4.0+
+- Tailwind CSS 4.0+
 
 ## Installation
 
