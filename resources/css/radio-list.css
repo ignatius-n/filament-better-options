@@ -19,7 +19,12 @@
   }
 
   & .fi-fo-radio-item {
-    @apply flex items-center justify-between gap-4 p-4 hover:ring hover:ring-primary-500 cursor-pointer;
+    @apply flex items-center justify-between gap-4 p-4 cursor-pointer;
+    
+    &:hover {
+      --tw-ring-color: var(--color-primary-500);
+      @apply ring;
+    }
 
     & .fi-fo-radio-item__icon {
       @apply size-10 fill-gray-400 dark:fill-white/30 shrink-0;
@@ -62,14 +67,17 @@
     }
 
     &.is-selected {
-      @apply bg-primary-500/10 ring-primary-500 ring-2;
+      background-color: color-mix(in oklab, var(--color-primary-500) 10%, transparent);
+      --tw-ring-color: var(--color-primary-500);
+      @apply ring-2;
 
       & .fi-fo-radio-item__icon {
-        @apply fill-primary-500;
+        fill: var(--color-primary-500);
       }
 
       & .fi-fo-radio-item__indicator {
-        @apply opacity-100 fill-primary-500;
+        @apply opacity-100;
+        fill: var(--color-primary-500);
       }
 
       & .is-indicator-partially-hidden {
