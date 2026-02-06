@@ -13,7 +13,8 @@
     @apply flex gap-4 p-4 border border-gray-200 dark:border-gray-800 rounded-lg cursor-pointer shadow-xs transition-all duration-200 ease-in-out;
 
     &:hover {
-      @apply ring-1 ring-primary-500;
+      --tw-ring-color: var(--color-primary-500);
+      @apply ring-1;
     }
 
     &:hover:not(.is-selected) {
@@ -81,14 +82,18 @@
     }
 
     &.is-selected {
-      @apply bg-primary-500/10 ring-2 ring-primary-500 transform scale-[1.01];
+      background-color: color-mix(in oklab, var(--color-primary-500) 10%, transparent);
+      --tw-ring-color: var(--color-primary-500);
+      @apply ring-2 transform scale-[1.01];
 
       & .fi-fo-radio-card__icon {
-        @apply fill-primary-500 transition-colors duration-200;
+        fill: var(--color-primary-500);
+        @apply transition-colors duration-200;
       }
 
       & .fi-fo-radio-card__indicator {
-        @apply opacity-100 fill-primary-500;
+        @apply opacity-100;
+        fill: var(--color-primary-500);
       }
 
       & .is-indicator-partially-hidden {
@@ -97,7 +102,8 @@
     }
 
     &:has(input:focus-visible) {
-      @apply ring-2 ring-primary-500 ring-offset-2;
+      --tw-ring-color: var(--color-primary-500);
+      @apply ring-2 ring-offset-2;
     }
   }
 }
